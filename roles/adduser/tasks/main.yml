@@ -1,0 +1,2 @@
+- user: name={{ username }} createhome=yes
+- authorized_key: user={{ username }} key="{{ public_key }}"

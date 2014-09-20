@@ -1,0 +1,14 @@
+<VirtualHost *:80>
+	ServerAdmin umireon@taka3sh.org
+	ServerName dev.taka3sh.org
+
+	SuexecUserGroup taka3sh taka3sh
+
+	DocumentRoot /home/taka3sh/dev.taka3sh.org
+	<Directory /home/taka3sh/dev.taka3sh.org>
+		Options All
+		AllowOverride AuthConfig FileInfo Indexes Limit
+		Order Allow,Deny
+		Allow from all
+	</Directory>
+</VirtualHost>

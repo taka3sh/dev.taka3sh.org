@@ -1,0 +1,5 @@
+- hosts: dbservers
+  sudo: yes
+  roles:
+    - upgrade_yum
+    - owncloud_mysql

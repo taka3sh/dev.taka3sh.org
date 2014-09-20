@@ -1,0 +1,6 @@
+- hosts: webservers
+  sudo: yes
+  roles:
+    - upgrade_apt
+    - adduser
+    - apache-php 

@@ -1,0 +1,11 @@
+version: 7.0.2
+sha256sum: ea07124a1b9632aa5227240d655e4d84967fb6dd49e4a16d3207d6179d031a3a
+dbtype: mysql
+dbname: taka3sh_owncloud
+dbuser: taka3sh
+dbpass: taka3sh
+dbhost: db.dev.taka3sh.org
+adminlogin: taka3sh
+adminpass: taka3sh
+directory: /home/taka3sh/www/owncloud/data
+docroot: /home/taka3sh/www

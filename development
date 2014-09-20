@@ -1,0 +1,8 @@
+[appservers]
+www.taka3sh.org
+
+[webservers]
+www.taka3sh.org
+
+[dbservers]
+db.taka3sh.org

@@ -1,0 +1,9 @@
+- get_url: url=https://download.owncloud.org/community/owncloud-{{ version }}.tar.bz2 dest=~/owncloud-{{ version }}.tar.bz2 sha256sum={{ sha256sum }}
+- unarchive: src=~/owncloud-{{ version }}.tar.bz2 dest={{ docroot }} copy=no creates={{ docroot }}/owncloud
+- lineinfile: dest={{ docroot }}/owncloud/.htaccess regexp=^Options line=#Options
+- stat: path={{ docroot }}/owncloud/config/config.php
+  register: config
+- template: src=autoconfig.php.j2 dest={{ docroot }}/owncloud/config/autoconfig.php mode=0600
+  when: config.stat.exists == false
+- file: path={{ docroot }}/owncloud/config/autoconfig.php state=absent
+  when: config.stat.isreg is defined and config.stat.isreg == true

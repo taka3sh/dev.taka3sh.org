@@ -1,0 +1,2 @@
+- file: path={{ dir }}/cgi-bin state=directory
+- command: cp /usr/lib/cgi-bin/php5 {{ dir }}/cgi-bin/php5

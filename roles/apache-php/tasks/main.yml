@@ -1,0 +1,30 @@
+- apt: update_cache=yes cache_valid_time=3600
+- apt: pkg={{ item }} state=latest
+  with_items:
+    - apache2
+    - apache2-suexec-custom
+    - php5-cli
+    - php5-cgi
+    - php5-curl
+    - php5-gd
+    - php5-mysql
+- apache2_module: name={{ item }} state=present
+  with_items:
+    - php5_cgi
+    - suexec 
+- copy: src=www-data dest=/etc/apache2/suexec/
+- copy: src={{ item }} dest=/etc/apache2/sites-available/
+  with_items:
+    - secure.dev.taka3sh.org
+    - www.dev.taka3sh.org
+    - dev.taka3sh.org
+    - nv.dev.taka3sh.org
+- command: a2ensite {{ item }}
+  with_items:
+    - default
+    - secure.dev.taka3sh.org
+    - www.dev.taka3sh.org
+    - dev.taka3sh.org
+    - nv.dev.taka3sh.org
+- service: name=apache2 enabled=yes state=restarted
+- apt: pkg=git state=latest

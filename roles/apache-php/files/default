@@ -1,0 +1,18 @@
+<VirtualHost *:80>
+	ServerAdmin umireon@taka3sh.org
+
+	ServerName dev.taka3sh.org
+
+	SuexecUserGroup taka3sh taka3sh
+
+	DocumentRoot /home/taka3sh/taka3sh.org
+	ScriptAlias /cgi-bin/ /home/taka3sh/www/cgi-bin/
+	Action application/x-httpd-php /cgi-bin/php5
+
+	<Directory /home/taka3sh/www>
+		Options All
+		AllowOverride AuthConfig FileInfo Indexes Limit
+		Order Allow,Deny
+		Allow from all
+	</Directory>
+</VirtualHost>

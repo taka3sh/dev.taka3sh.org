@@ -1,0 +1,5 @@
+- yum: pkg=mysql-server state=latest
+- yum: pkg=MySQL-python state=latest
+- service: name=mysqld enabled=yes state=started
+- mysql_user: name=taka3sh password=taka3sh state=present host=192.168.50.3 priv=taka3sh_owncloud.*:ALL
+- mysql_db: name=taka3sh_owncloud
